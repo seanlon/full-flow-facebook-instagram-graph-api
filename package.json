@@ -1,0 +1,24 @@
+{
+  "name": "js-facebook-login-and-graph-api",
+  "version": "1.0.0",
+  "description": "A framework for helping others connect to v8 graph api facebok login and access",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate-cert": "openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem",
+    "start": "http-server -p 4200 -o -S"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanlon/js-facebook-login-and-graph-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seanlon/js-facebook-login-and-graph-api/issues"
+  },
+  "homepage": "https://github.com/seanlon/js-facebook-login-and-graph-api#readme",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}
