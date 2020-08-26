@@ -1,8 +1,8 @@
-# js-facebook-login-and-graph-api
+# full-flow-facebook-instagram
 
-A framework for helping others connect to v8 graph api facebok login and access
+A framework for helping others connect to v8 graph api facebok login,graphapi and access and also grab the instagram access linked to it.
 
-1. Start
+1. Start example
    `npm install`
    `npm run generate-cert`
    `npm run start`
@@ -15,5 +15,5 @@ A framework for helping others connect to v8 graph api facebok login and access
    ```
 
 3) Verify
-   `Go Browser - https://localhost:4200/flow.html`
+   `Go Browser - https://localhost:4200/flow-example.html`
    `Press login button and login`

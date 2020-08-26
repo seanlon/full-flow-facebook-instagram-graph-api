@@ -130,7 +130,6 @@
       }
 
       function getMyInstagramAccInfo(instaUserId, accessToken) {
-        const wantedFields = "id,username,media_count";
         const url = `https://graph.facebook.com/v8.0/${instaUserId}?fields=biography,followers_count,follows_count,ig_id,name,profile_picture_url&access_token=${accessToken}`;
 
         let headers = new Headers();

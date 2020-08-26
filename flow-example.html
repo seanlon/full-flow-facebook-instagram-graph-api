@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Test Your facebook login, grab your facebook linked page and then grab the
+      instagram information
+    </title>
+    <style>
+      .even {
+        background: brown;
+        color: white;
+      }
+      .odd {
+        background: saddlebrown;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Objective:</h2>
+    <h4>
+      Test Your facebook login, grab your facebook linked page and then grab the
+      instagram information
+    </h4>
+    <h3>Step1: facbeook login</h3>
+    <fb:login-button scope="public_profile,email" onlogin="doLogin();">
+    </fb:login-button>
+
+    <h3 class="">Step2 : Get app token</h3>
+    <pre class="even" id="contentBody0"></pre>
+    <h3 class="">Step 3: Get Response fb login</h3>
+    <pre class="odd" id="contentBody"></pre>
+    <h3 class="">Step 4: Get Response fb login profile</h3>
+    <pre class="even" id="contentBody5"></pre>
+    <h3 class="">Step 5: Get Response fb-page instabusiness account</h3>
+    <pre class="odd" id="contentBody6"></pre>
+    <h3 class="">Step 6: Get Response instabusiness profile account</h3>
+    <pre class="even" id="contentBody7"></pre>
+
+    <h3 class="">Step 6: Get Response instabusiness profile insights</h3>
+    <pre class="odd" id="contentBody8"></pre>
+
+    <h3 class="">Step 7: Get Response instabusiness posts</h3>
+    <pre class="even" id="contentBody9"></pre>
+    <script type="module" src="flow.js"></script>
+    <script type="module">
+      import { initializeFbScripts } from "./flow.js";
+      initializeFbScripts('1149917375378502');
+    </script>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 {
-  "name": "js-facebook-login-and-graph-api",
+  "name": "full-flow-facebook-login-and-instagram-graph-api",
   "version": "1.0.0",
   "description": "A framework for helping others connect to v8 graph api facebok login and access",
   "main": "index.js",
@@ -12,8 +12,8 @@
     "type": "git",
     "url": "git+https://github.com/seanlon/js-facebook-login-and-graph-api.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "SeanLon",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/seanlon/js-facebook-login-and-graph-api/issues"
   },
