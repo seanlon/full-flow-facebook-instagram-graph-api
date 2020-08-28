@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Test Your facebook login, grab your facebook linked page and then grab the
+      instagram information
+    </title>
+    <style>
+      .even {
+        background: brown;
+        color: white;
+      }
+      .odd {
+        background: saddlebrown;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Objective:</h2>
+    <h4>
+      Test Your facebook login, grab your facebook linked page and then grab the
+      instagram information
+    </h4>
+    <h3>Step 0: facbeook login</h3>
+    <fb:login-button scope="email,public_profile,pages_show_list,instagram_basic,pages_read_engagement,read_insights,pages_manage_engagement,ads_read,instagram_manage_insights" onlogin="handlefbLogin();">
+    </fb:login-button>
+
+    <h3 class="">Step 1: Get my facebook account</h3>
+    <pre class="even" id="MyFacebookAccount"></pre>
+    <h3 class="">Step 2: Get my facebook-related account</h3>
+    <pre class="odd" id="MyFacebookAccountInfo"></pre>
+    <h3 class="">Step 4: Get my instagram business account</h3>
+    <pre class="even" id="MyFacebookBizInstaAccountInfo"></pre>
+    <h3 class="">Step 5: Get Insta profile account</h3>
+    <pre class="odd" id="MyInstaAccountInfo"></pre>
+    <h3 class="">Step 7: Get Insta profile insights</h3>
+    <pre class="even" id="MyInstaAccountInsights"></pre>
+
+    <h3 class="">Step 7: Get Insta posts and info</h3>
+    <pre class="odd" id="MyInstaAccountPosts"></pre>
+ 
+    <script type="module">
+      // just print json into dom nicely
+      const printData = (domId, dataObject) => {
+        document.getElementById(domId).innerHTML = JSON.stringify(
+          dataObject,
+          null,
+          "\n\t"
+        );
+      };
+      // initialize data----->
+      import {
+        initializeFlow,
+        doLogin,
+        getAppToken,
+        getMyfbAccPage,
+        getMyfbAccInfo,
+        getMyFbInstaBusinessAcc,
+        getMyInstagramAccMediaStats,
+        getMyInstagramAccInfo,
+        getMyInstagramAccInsight,
+      } from "../scripts/flow-facebook-graph-instagram.js";
+
+      const appId = "1763919787187412";
+      const clientToken = "9a211d72dc79f30dfa97da0d03214901";
+      const loginSuccessFunc = async (responseItem) => {
+        const appToken = await getAppToken(
+          responseItem.userIdInfo,
+          responseItem.accessTokenInfo
+        );
+
+        // 1. get my facebook account
+        const fbInfo = await getMyfbAccInfo(
+          responseItem.userIdInfo,
+          responseItem.accessTokenInfo
+        );
+        printData("MyFacebookAccount", fbInfo);
+
+        // 2. get my facebook related accounts
+        const fbAccInfo = await getMyfbAccPage(
+          responseItem.userIdInfo,
+          responseItem.accessTokenInfo
+        );
+        printData("MyFacebookAccountInfo", fbAccInfo.data);
+
+        // here i choose the first one - you can do more
+        const fbPageAccId = fbAccInfo.data[0].id;
+        const fbPageAccesstoken = fbAccInfo.data[0].access_token;
+
+        // 3. get my facebook related accounts
+        const fbInstaInfo = await getMyFbInstaBusinessAcc(
+          fbPageAccId,
+          fbPageAccesstoken
+        );
+        printData("MyFacebookBizInstaAccountInfo", fbInstaInfo);
+
+        // 4. get my instagram profile info
+        const instaProfileInfo = await getMyInstagramAccInfo(
+          fbInstaInfo.instagram_business_account.id,
+          fbPageAccesstoken
+        );
+        printData("MyInstaAccountInfo", instaProfileInfo);
+
+        // 5. get my instagram profile inisghts
+        const instaProfileInsight = await getMyInstagramAccInsight(
+          fbInstaInfo.instagram_business_account.id,
+          fbPageAccesstoken
+        );
+        printData("MyInstaAccountInsights", instaProfileInsight);
+
+        // 6. get my instagram profile posts
+        const instaProfilePosts = await getMyInstagramAccMediaStats(
+          fbInstaInfo.instagram_business_account.id,
+          fbPageAccesstoken
+        );
+        printData("MyInstaAccountPosts", instaProfilePosts);
+      };
+      const loginFailFunc = async (responseItem) => {};
+      window.flowFacebookData = {
+        appId: appId,
+        clientToken: clientToken,
+        loginSuccessFunc: loginSuccessFunc,
+        loginFailFunc: loginFailFunc,
+      };
+      initializeFlow();
+      window.handlefbLogin = doLogin;
+      // <-----initialize data
+    </script>
+  </body>
+</html>
