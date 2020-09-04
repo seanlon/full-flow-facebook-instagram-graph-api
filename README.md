@@ -6,19 +6,22 @@ Full Flow Facebook Instagram example .
 
 1. Start example
 
-   ```npm install
+   ```
+   npm install
 
    ```
 
    then
 
-   ```npm run generate-cert
+   ```
+   npm run generate-cert
 
    ```
 
    then
 
-   ```npm run start
+   ```
+   npm run start
 
    ```
 
