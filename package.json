@@ -1,7 +1,7 @@
 {
   "name": "full-flow-facebook-login-and-instagram-graph-api",
   "version": "1.0.0",
-  "description": "A framework for helping others connect to v8 graph api facebok login and access",
+  "description": "A framework for helping others connect to v8 graph api facebok login and access.Use javascript and v8 graph api to integrate facebook login and grab facebook account information like page account information and then get the instagram  account information like the id, followers, followers count, media posts, likes,comments,insights impression, viewers. It is the full flow that can help you start using simple javascript. ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

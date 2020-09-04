@@ -1,11 +1,12 @@
 # full-flow-facebook-instagram
 
 A framework for helping others connect to v8 graph api facebok login,graphapi and access and also grab the instagram access linked to it.
+Use javascript and v8 graph api to integrate facebook login and grab facebook account information like page account information and then get the instagram  account information like the id, followers, followers count, media posts, likes,comments,insights impression, viewers. It is the full flow that can help you start using simple javascript. 
 
 1. Start example
-   `npm install`
-   `npm run generate-cert`
-   `npm run start`
+   ```npm install   ```
+   ```npm run generate-cert   ```
+   ```npm run start   ```
 
 2. Configure
    In `examples/flow-example.html` , Change your client profile and appid
@@ -17,3 +18,10 @@ A framework for helping others connect to v8 graph api facebok login,graphapi an
 3) Verify
    `Go Browser - https://localhost:4200/examples/flow-example.html`
    `Press login button and login`
+
+
+# Pre-requisites:
+  - Correct app settings and correct appId and appToken.
+  - Testing account - facebook account with linked facebook page that links to instagram business acount.
+
+
